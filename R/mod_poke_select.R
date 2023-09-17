@@ -59,6 +59,8 @@ mod_poke_select_server <- function(id) {
         select_pokemon(input$selected)
       })
 
+    
+
     return(
       list(
         selected = selected_pokemon,

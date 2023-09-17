@@ -179,13 +179,11 @@ select_pokemon <- function(selected_name) {
           {do.call(rbind, .)}
 
       selected <- 
-          reactive({
-              poke_data %>% 
-                  dplyr::filter(
-                      name == selected_name
-                  )
-
-          })
+          poke_data %>% 
+          {do.call(rbind, .)} %>%
+          dplyr::filter(
+              name == selected_name
+          )
 
       return(selected)
   }
