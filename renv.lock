@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.3.1",
+    "Version": "4.2.2",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -182,14 +182,9 @@
     },
     "bslib": {
       "Package": "bslib",
-      "Version": "0.5.1.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "bslib",
-      "RemoteUsername": "rstudio",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "e25ad64409fcfa6c0a16f704d2a85701bd91f111",
+      "Version": "0.5.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "base64enc",
@@ -198,13 +193,12 @@
         "htmltools",
         "jquerylib",
         "jsonlite",
-        "lifecycle",
         "memoise",
         "mime",
         "rlang",
         "sass"
       ],
-      "Hash": "9555d896ead05fa16a6dad9ebd0e9645"
+      "Hash": "283015ddfbb9d7bf15ea9f0b5698f0d9"
     },
     "cachem": {
       "Package": "cachem",
@@ -1546,23 +1540,6 @@
         "cpp11"
       ],
       "Hash": "90b28393209827327de889f49935140a"
-    },
-    "tablerDash": {
-      "Package": "tablerDash",
-      "Version": "0.1.5.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "tablerDash",
-      "RemoteUsername": "RinteRface",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "040ebded8ac3103a220d0207398f2c97de3b0ea3",
-      "Requirements": [
-        "htmltools",
-        "knitr",
-        "shiny"
-      ],
-      "Hash": "3ff9cceee4cf79d8fdc30bccf53f88e7"
     },
     "testthat": {
       "Package": "testthat",
