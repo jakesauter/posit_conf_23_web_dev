@@ -13,46 +13,47 @@ app_server <- function(input, output, session) {
     class = "btn-success"
   )
 
-  observeEvent(TRUE, {
-    showModal(
-      modalDialog(
-        title = "WeLCOME to the PoKeMON APP",
-        "Do you want to start the app!",
-        size = "s",
-        footer = tagList(
-          cancel_btn,
-          actionButton(
-            "continue",
-            "Continue",
-            class = "btn-danger",
-            `data-dismiss` = "modal"
-          )
-        )
-      )
+selected <- observe({
+    load(
+        file = "data/poke_data.rda"
     )
-  })
 
-  observeEvent(input$continue, {
-    showModal(
-      modalDialog(
-        title = "The     N1 poKemON APP IN THE WORLD!!!!",
-        size = "s",
-        "Please confirm",
-        footer = tagList(
-          modalButton("continue"),
-          actionButton(
-            "cancel",
-            "Cancel",
-            class = "btn-success",
-            `data-dismiss` = "modal"
-          )
-        )
+    poke_data <- 
+        poke_data %>% 
+        {do.call(rbind, .)}
+
+
+    selected <- 
+        reactive({
+            poke_data %>% 
+                dplyr::filter(
+                    name == input$pokemon_name
+                )
+
+        })
+
+    selected
+})
+
+
+  selected <- observe({
+      load(
+          file = "data/poke_data.rda"
       )
-    )
-  }, priority = 10)
 
-  observeEvent(input$cancel, {
-    session$reload()
+      poke_data <- 
+          poke_data %>% 
+          {do.call(rbind, .)}
+
+
+      selected <- 
+          reactive({
+              poke_data %>% 
+                  dplyr::filter(
+                      name == input$pokemon_name
+                  )
+
+          })
   })
 
   main <- mod_poke_select_server("poke_select_1")
