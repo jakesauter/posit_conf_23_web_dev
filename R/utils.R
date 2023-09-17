@@ -172,28 +172,24 @@ process_pokemon_stats <- function(stats) {
 #'
 #' @return A list containing the selected pokemon data.
 #' @keywords internal
-select_pokemon <- function(selected) {
-  # We make the function slow on purpose.
+select_pokemon <- function(selected_name) {
 
-  # WORKSHOP TODO
-  # Find a way to warn the user about this waiting time ...
-  Sys.sleep(5)
+      poke_data <- 
+          poke_data %>% 
+          {do.call(rbind, .)}
 
-  # We simulate an imaginary failing API connection
-  # This randomly fails so the function result
-  # isn't predictable...and the app crashes without
-  # notifying the user of what happened...
+      selected <- 
+          reactive({
+              poke_data %>% 
+                  dplyr::filter(
+                      name == selected_name
+                  )
 
-  # WORKSHOP TODO
-  # Find a way to make this function elegantly failing
-  # and warn the end user ...
-  res <- sample(c(FALSE, TRUE), 1)
-  if (!res) {
-    stop("Could not connect to the Pokemon API ...")
-  } else {
-    poke_data[[selected]]
+          })
+
+      return(selected)
   }
-}
+
 
 # R CMD check ...
 globalVariables("poke_data")

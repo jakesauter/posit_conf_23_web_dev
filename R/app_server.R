@@ -13,49 +13,6 @@ app_server <- function(input, output, session) {
     class = "btn-success"
   )
 
-selected <- observe({
-    load(
-        file = "data/poke_data.rda"
-    )
-
-    poke_data <- 
-        poke_data %>% 
-        {do.call(rbind, .)}
-
-
-    selected <- 
-        reactive({
-            poke_data %>% 
-                dplyr::filter(
-                    name == input$pokemon_name
-                )
-
-        })
-
-    selected
-})
-
-
-  selected <- observe({
-      load(
-          file = "data/poke_data.rda"
-      )
-
-      poke_data <- 
-          poke_data %>% 
-          {do.call(rbind, .)}
-
-
-      selected <- 
-          reactive({
-              poke_data %>% 
-                  dplyr::filter(
-                      name == input$pokemon_name
-                  )
-
-          })
-  })
-
   main <- mod_poke_select_server("poke_select_1")
   mod_poke_info_server("poke_info_1", main$selected, main$is_shiny)
   mod_poke_type_server("poke_type_1", main$selected)
