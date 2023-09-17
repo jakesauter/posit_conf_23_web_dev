@@ -9,40 +9,31 @@
 library(bslib)
 library(bsicons)
 
-card <- 
-    card(
-        card_header(
-            class = "bg-dark",
-            "A header"
-        ),
-        card_body(
-            markdown("Some text with a [link](https://github.com)")
-        )
-    )
 
 ui <- 
     bslib::page_fluid(
         bslib::layout_sidebar( 
             sidebar = 
                 sidebar(
-                    "Sidebar Info"
+                    "Pokemon Info", 
+                    position = "right"
                 ), 
+            bslib::card("Pokemon Select Input"), 
             bslib::layout_column_wrap(
                 width = 1, 
                 bslib::layout_column_wrap(
                     width = 1/2, 
-                    card, 
-                    card, 
-                    card, 
-                    card
+                    bslib::card("Pokemon Name"), 
+                    bslib::card("Pokemon Photo"), 
+                    bslib::card("Pokemon Move Select"), 
+                    bslib::card("Pokemon Move Description")
                 ), 
                 bslib::layout_column_wrap(
                     width = 1/2, 
-                    card, 
-                    card, 
-                    card, 
-                    card, 
-                    card
+                    bslib::card("Pokemon Map Location"), 
+                    bslib::card("Pokemon Damage"), 
+                    bslib::card("Pokemon Evolution"), 
+                    bslib::card("Pokemon Stats")
                 )
             )
         )
