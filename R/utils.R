@@ -181,6 +181,7 @@ select_pokemon <- function(selected_name) {
       selected <- 
           poke_data %>% 
           {do.call(rbind, .)} %>%
+          as.data.frame() %>% 
           dplyr::filter(
               name == selected_name
           )
