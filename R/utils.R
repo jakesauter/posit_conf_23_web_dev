@@ -172,20 +172,19 @@ process_pokemon_stats <- function(stats) {
 #'
 #' @return A list containing the selected pokemon data.
 #' @keywords internal
-select_pokemon <- function(selected_name) {
+select_pokemon <- function(selected_names) {
 
-      poke_data <- 
-          poke_data %>% 
-          {do.call(rbind, .)}
+      names <- 
+        sapply(
+          poke_data, 
+          function(x) x$name %in% selected_names
+        )
 
       selected <- 
-          poke_data %>% 
-          {do.call(rbind, .)} %>%
-          as.data.frame() %>% 
-          dplyr::filter(
-              name == selected_name
-          )
-
+        poke_data[
+          names %in% selected_names
+        ]
+  
       return(selected)
   }
 
