@@ -4,4 +4,7 @@
 
 pkgload::load_all()
 options( "golem.app.prod" = TRUE)
+
+# Wrap with bslib::run_with_themer()
+
 run_app() # add parameters here (if any)

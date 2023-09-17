@@ -5,6 +5,11 @@
 #' @noRd
 app_ui <- function(request) {
 
+
+  # Include page 
+
+
+
   nav_tag <- tablerDashNav(
     id = "mymenu",
     src = "https://www.ssbwiki.com/images/9/9c/Master_Ball_Origin.png",
