@@ -14,6 +14,10 @@ app_server <- function(input, output, session) {
   )
 
   main <- mod_poke_select_server("poke_select_1")
+
+
+  print(main)
+
   mod_poke_info_server("poke_info_1", main$selected, main$is_shiny)
   mod_poke_type_server("poke_type_1", main$selected)
   mod_poke_evolve_server("poke_evolve_1", main$selected, main$is_shiny)
